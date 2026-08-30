@@ -14,6 +14,196 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ===== ADDITIONAL PROFESSIONAL POLISH ===== */
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image .profile-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #00c8ff, #7b2ffc, #00c8ff);
+            background-size: 300% 300%;
+            animation: gradientMove 4s ease infinite;
+            box-shadow: 0 0 60px rgba(0, 200, 255, 0.15);
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-image .profile-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            border: 3px solid #0b0f1a;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image .profile-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 200, 255, 0.05), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* glow ring pulse */
+        .hero-image .glow-ring {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 200, 255, 0.08);
+            animation: ringPulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-image .glow-ring:nth-child(2) {
+            animation-delay: 1s;
+            inset: -20px;
+            border-color: rgba(123, 47, 252, 0.06);
+        }
+
+        @keyframes ringPulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+        }
+
+        /* Hero text enhancements */
+        .hero-text .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .hero-text .badge-row span {
+            background: rgba(0, 200, 255, 0.08);
+            border: 1px solid rgba(0, 200, 255, 0.12);
+            padding: 4px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #b0c8e0;
+        }
+
+        body.light .hero-text .badge-row span {
+            background: rgba(0, 200, 255, 0.05);
+            border-color: rgba(0, 200, 255, 0.1);
+            color: #1a2a3a;
+        }
+
+        /* section divider */
+        .section-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+            margin: 0 auto 40px;
+            opacity: 0.3;
+        }
+
+        /* button glow effect */
+        .btn.primary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn.primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        /* card hover lift */
+        .edu-card,
+        .skill-category,
+        .project-card,
+        .exp-card,
+        .career-card,
+        .contact-card,
+        .cv-card,
+        .about-card,
+        .ps-card {
+            transition: transform 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+
+        .edu-card:hover,
+        .skill-category:hover,
+        .project-card:hover,
+        .exp-card:hover,
+        .career-card:hover,
+        .contact-card:hover,
+        .cv-card:hover,
+        .about-card:hover,
+        .ps-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        body.light .edu-card:hover,
+        body.light .skill-category:hover,
+        body.light .project-card:hover,
+        body.light .exp-card:hover,
+        body.light .career-card:hover,
+        body.light .contact-card:hover,
+        body.light .cv-card:hover,
+        body.light .about-card:hover,
+        body.light .ps-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+        }
+
+        /* responsive polish */
+        @media (max-width: 992px) {
+            .hero-image .profile-wrapper {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image .profile-wrapper {
+                max-width: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -49,6 +239,11 @@
                 <h1>Hi, I'm <span class="highlight">Yuvraj Singh</span></h1>
                 <p class="hero-sub">Computer Science Engineering Student</p>
                 <p class="hero-tagline">Aspiring Cyber Security Engineer | Ethical Hacker | Penetration Tester</p>
+                <div class="badge-row">
+                    <span>🔐 Cybersecurity</span>
+                    <span>⚡ Ethical Hacking</span>
+                    <span>🛡️ Penetration Testing</span>
+                </div>
                 <p class="hero-intro">I am a Computer Science and Engineering student at Lovely Professional University,
                     passionate about cybersecurity, ethical hacking, programming, problem-solving, and building
                     practical technology projects.</p>
@@ -63,27 +258,33 @@
                     <a href="#contact" class="btn primary">Contact Me</a>
                 </div>
                 <div class="hero-social">
-                    <a href="https://github.com/YuvraSingh9835" target="_blank" aria-label="GitHub"><svg
-                            viewBox="0 0 24 24" width="24" height="24">
+                    <a href="https://github.com/YuvraSingh9835" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
                             <path fill="currentColor"
                                 d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                        </svg></a>
-                    <a href="https://www.linkedin.com/in/yuvraj-singh-29458a384/" target="_blank"
-                        aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24">
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yuvraj-singh-29458a384/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
                             <path fill="currentColor"
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg></a>
-                    <a href="mailto:yuvraj.official786@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="24"
-                            height="24">
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .792 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:yuvraj.official786@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
                             <path fill="currentColor"
                                 d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                             <path fill="currentColor"
                                 d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="Screenshot 2023-12-07 123456.png" alt="Yuvraj Singh profile photo" />
+                <div class="profile-wrapper">
+                    <div class="glow-ring"></div>
+                    <div class="glow-ring"></div>
+                     <img src="profile-photo.png" alt="Yuvraj Singh profile photo" />
             </div>
         </div>
         <div class="cyber-glow"></div>
@@ -93,6 +294,7 @@
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
             <div class="about-card">
                 <p>I am a B.Tech Computer Science and Engineering student at Lovely Professional University, currently
                     pursuing my 2nd year and 3rd semester with an 8.4 CGPA.</p>
@@ -110,6 +312,7 @@
     <section id="education" class="section">
         <div class="container">
             <h2 class="section-title">Education</h2>
+            <div class="section-divider"></div>
             <div class="education-timeline">
                 <div class="edu-card">
                     <h3>Lovely Professional University</h3>
@@ -144,6 +347,7 @@
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">Skills</h2>
+            <div class="section-divider"></div>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h4>Programming</h4>
@@ -211,10 +415,11 @@
         </div>
     </section>
 
-    <!-- PROBLEM SOLVING (mini) -->
+    <!-- PROBLEM SOLVING -->
     <section id="problemsolving" class="section alt-bg">
         <div class="container">
             <h2 class="section-title">Problem Solving &amp; Coding</h2>
+            <div class="section-divider"></div>
             <div class="ps-card">
                 <p>I practice coding regularly with a focus on:</p>
                 <div class="ps-tags">
@@ -232,6 +437,7 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Projects</h2>
+            <div class="section-divider"></div>
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>AI Integrated Electric Saver System</h3>
@@ -287,6 +493,7 @@
     <section id="experience" class="section alt-bg">
         <div class="container">
             <h2 class="section-title">Activities &amp; Experience</h2>
+            <div class="section-divider"></div>
             <div class="exp-card">
                 <h3>Cyber Security Awareness Activity</h3>
                 <p>College cybersecurity awareness activity where approximately 40 students from Classes 2 to 12 were
@@ -300,6 +507,7 @@
     <section id="career" class="section">
         <div class="container">
             <h2 class="section-title">My Career Goal</h2>
+            <div class="section-divider"></div>
             <div class="career-card">
                 <p>My goal is to build a career in cybersecurity as an Ethical Hacker, Penetration Tester, or Cyber
                     Security Engineer. I am continuously developing my programming, networking, security, and
@@ -314,6 +522,7 @@
     <section id="contact" class="section alt-bg">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
+            <div class="section-divider"></div>
             <div class="contact-card">
                 <p><strong>Email:</strong> <a
                         href="mailto:yuvraj.official786@gmail.com">yuvraj.official786@gmail.com</a></p>
@@ -331,10 +540,11 @@
         </div>
     </section>
 
-    <!-- CV DOWNLOAD SECTION -->
+    <!-- CV DOWNLOAD -->
     <section id="cv" class="section">
         <div class="container">
             <h2 class="section-title">Download My CV</h2>
+            <div class="section-divider"></div>
             <div class="cv-card">
                 <p>Want to know more about my skills, education, and projects? Download my latest CV.</p>
                 <div class="cv-buttons">
